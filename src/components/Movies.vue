@@ -1,6 +1,11 @@
 <template>
     <section id="movies">
         Io Sono Movies 
+
+            <input type="text" v-model="textToSearch">
+            <button v-on:click="search()"> Search </button>
+
+        {{textToSearch}}
     </section>
 </template>
 
@@ -12,20 +17,35 @@ export default {
     components: {
         
     },
-
-    created : function() {
-        //Make HTTP  GET Request to an API
-        axios.get('https://api.themoviedb.org/3/search/movie?api_key=2c9b181fd830bd18b14d45907ca913b7',
-        {
-            params: {
-                query : 'fight'
-            }
-        })
-        .then((object) =>{
-            console.log(object.data.results)
-            
-        });
+    data : function(){
+        return{
+            textToSearch: '',
+        }
     },
+
+    methods :{
+        search(){
+            //Make HTTP  GET Request to an API
+            axios.get('https://api.themoviedb.org/3/search/movie?api_key=2c9b181fd830bd18b14d45907ca913b7',
+            {
+                params: {
+                    query : this.textToSearch
+                }
+            })
+            .then((object) =>{
+                // console.clear()
+                console.log('API Respone: ', object.data.results)
+            });
+        }
+    },
+    created : function() {
+        console.log('Created')
+        
+    },
+
+    computed : {
+        
+    }
 
 }
 </script>
