@@ -2,7 +2,7 @@
     <section id="movies">
         Io Sono Movies 
 
-            <input type="text" v-model="textToSearch">
+            <input type="text" v-on:keyup.enter="search()" v-model="textToSearch">
             <button v-on:click="search()"> Search </button>
 
         {{textToSearch}}
@@ -33,13 +33,14 @@ export default {
                 }
             })
             .then((object) =>{
-                // console.clear()
+
+                //Check
+                console.clear()
                 console.log('API Respone: ', object.data.results)
             });
         }
     },
     created : function() {
-        console.log('Created')
         
     },
 

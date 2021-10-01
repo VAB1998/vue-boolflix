@@ -1,23 +1,24 @@
 <template>
   <div id="app">
-    <Header />
-    <Main />
+    <Searchbar />
+    <Movies />
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Main from './components/Main.vue'
+import Searchbar from './components/Searchbar.vue'
+import Movies from './components/Movies.vue'
 
 export default {
   name: 'App',
   components: {
-    Header,
-    Main
+    Searchbar,
+    Movies    
   }
 }
 </script>
-
+,
+    Searchbar
 
 <style lang="scss">
 
