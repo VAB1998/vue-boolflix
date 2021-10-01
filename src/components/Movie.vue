@@ -1,8 +1,15 @@
 <template>
-    <section class="movie">
-        {{title}} -- {{originalTitle}} -- {{language}} -- {{vote}}
+    <div class="col-4">
+
+        <div class="movie">
+            <h6> Title: {{ title }} </h6>
+            <h6> Original Title: {{originalTitle}} </h6>
+            <h6> Original Language: {{language}} </h6>
+            <h6> Vote: {{vote}} </h6> 
+        </div>
         
-    </section>
+    </div>
+
 </template>
 
 <script>
@@ -16,24 +23,14 @@ export default {
         language : String, 
         vote : Number 
     },
-
-    data : function(){
-        return{
-        }
-    },
-
-    methods :{
-        
-    },
 }
 </script>
 
 
 <style lang="scss" scoped>
+@import '../style/general.scss';
 .movie{
-    
-    background-color: cornflowerblue;
-    border: 1px solid black;
-    display: inline-block;
+    background-color: #0003;
+
 }
 </style>

@@ -1,6 +1,4 @@
 -App
-    -Header
-        -Searchbar
-    -Main
-        -Movies
-            -Movie
+    -Searchbar
+    -Movies
+        -Movie

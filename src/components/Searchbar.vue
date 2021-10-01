@@ -1,6 +1,8 @@
 <template>
     <div id="searchbar">
-        Io sono searchbar
+            <!-- <input type="text" placeholder="Search the Film"
+            v-on:keyup.enter="$emit('searchMovie', needle)" v-model="needle">
+            <button v-on:click="$emit('searchMovie', needle)"> Search </button>         -->
     </div>
 </template>
 
@@ -9,17 +11,22 @@
 
 export default {
     name: 'Searchbar',
-    components: {
+    data : function(){
+        return{
+            needle : ''
+        }
+    },
 
-    }
+
 }
+
+
 </script>
 
 
 <style lang="scss" scoped>
+@import '../style/general.scss';
 #searchbar{
     float: right;
-    height: 50px;
-    background-color: azure;
 }
 </style>
