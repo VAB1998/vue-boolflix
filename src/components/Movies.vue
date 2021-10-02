@@ -6,6 +6,7 @@
                     <img src="https://fontmeme.com/permalink/211001/c072857f28ffed69c9266a55183f4c20.png" alt="Boolflix logo">
                 </div>
                 <div class="col-4">
+                    <!-- ------Searchbar------ -->
                     <div id="searchbar">
                         <input type="text" placeholder="Search the Film"
                         v-on:keyup.enter="search" v-model="needle">
@@ -15,6 +16,7 @@
             </div>
 
             <div class="row gy-3">
+                <!-- ------Movie------ -->
                 <Movie v-for="(item) in movieList" :key="item.id" 
                 :title="item.title" :originalTitle="item.original_title" :language="item.original_language" :vote="item.vote_average" />
             </div>

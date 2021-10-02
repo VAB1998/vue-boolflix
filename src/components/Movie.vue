@@ -4,7 +4,14 @@
         <div class="movie">
             <h6> Title: {{ title }} </h6>
             <h6> Original Title: {{originalTitle}} </h6>
-            <h6> Original Language: {{language}} </h6>
+            <h6 v-if="language == 'en'">
+                <img :src="`https://www.countryflags.io/gb/flat/64.png`">
+                <img :src="`https://www.countryflags.io/us/flat/64.png`">
+            </h6>
+            <h6 v-else>
+                <img :src="`https://www.countryflags.io/${language}/flat/64.png`">
+            </h6>
+            
             <h6> Vote: {{vote}} </h6> 
         </div>
         
