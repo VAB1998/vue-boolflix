@@ -2,8 +2,8 @@
     <div class="col-4">
 
         <div class="movie">
-            <h6> Title: {{ title }} </h6>
-            <h6> Original Title: {{originalTitle}} </h6>
+            <h6> Title: {{ title }} {{tvTitle}} </h6>
+            <h6> Original Title: {{originalTitle}} {{tvOriginalTitle}} </h6>
             <h6 v-if="language == 'en'">
                 <img :src="`https://www.countryflags.io/gb/flat/64.png`">
                 <img :src="`https://www.countryflags.io/us/flat/64.png`">
@@ -28,7 +28,9 @@ export default {
         title : String,
         originalTitle : String, 
         language : String, 
-        vote : Number 
+        vote : Number,
+        tvTitle : String,
+        tvOriginalTitle : String,
     },
 }
 </script>

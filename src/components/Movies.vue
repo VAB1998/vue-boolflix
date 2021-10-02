@@ -17,8 +17,9 @@
 
             <div class="row gy-3">
                 <!-- ------Movie------ -->
-                <Movie v-for="(item) in movieList" :key="item.id" 
-                :title="item.title" :originalTitle="item.original_title" :language="item.original_language" :vote="item.vote_average" />
+                <Movie v-for="(item) in completeList" :key="item.id" 
+                :title="item.title" :originalTitle="item.original_title" :language="item.original_language" :vote="item.vote_average" 
+                :tvTitle="item.name" :tvOriginalTitle="item.original_name"  />
             </div>
 
         </div>
@@ -43,7 +44,9 @@ export default {
         return{
 
             needle : '',
-            movieList : []
+            movieList : [],
+            tvList : [],
+            completeList : []
         }
     },
 
@@ -64,9 +67,24 @@ export default {
                     console.log('API Respone: ', object.data.results)
                     console.log('MovieList:', this.movieList)
                 });
+                axios.get('https://api.themoviedb.org/3/search/tv?api_key=2c9b181fd830bd18b14d45907ca913b7',
+                {
+                    params: {
+                        query : this.needle,
+                    }
+                })
+                .then((object) =>{
+                    this.tvList = object.data.results
+                    //Check
+                    console.clear()
+                    console.log('API Respone: ', object.data.results)
+                    console.log('tvList:', this.tvList)
+
+                    this.completeList = this.movieList.concat(this.tvList)
+                });
             } else {
                 this.needle = ''
-                this.movieList = ''
+                this.completeList = ''
             }
         }
     },   
