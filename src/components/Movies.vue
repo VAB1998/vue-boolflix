@@ -53,34 +53,42 @@ export default {
     methods :{
         search(){
             if(this.needle.trim() != ''){
-                 //Make HTTP  GET Request to an API
-                axios.get('https://api.themoviedb.org/3/search/movie?api_key=2c9b181fd830bd18b14d45907ca913b7',
+                 //Make HTTP GET Request to an API for search/movies
+                axios.get('https://api.themoviedb.org/3/search/movie',
                 {
                     params: {
+                        api_key : '2c9b181fd830bd18b14d45907ca913b7',
                         query : this.needle,
                     }
                 })
                 .then((object) =>{
+                    //Put the result of the Request in movieList array
                     this.movieList = object.data.results
+
                     //Check
                     console.clear()
-                    console.log('API Respone: ', object.data.results)
-                    console.log('MovieList:', this.movieList)
+                    console.log('movieList:', this.movieList)
                 });
-                axios.get('https://api.themoviedb.org/3/search/tv?api_key=2c9b181fd830bd18b14d45907ca913b7',
+                 //Make HTTP GET Request to an API for search/tv
+                axios.get('https://api.themoviedb.org/3/search/tv',
                 {
                     params: {
+                        api_key : '2c9b181fd830bd18b14d45907ca913b7',
                         query : this.needle,
                     }
                 })
                 .then((object) =>{
+                    //Put the result of the Request in tvList array
                     this.tvList = object.data.results
-                    //Check
-                    console.clear()
-                    console.log('API Respone: ', object.data.results)
-                    console.log('tvList:', this.tvList)
 
+                    //Check
+                    console.log('tvList:', this.tvList)
+                    
+                    //Concat the movieList and tvList arrays in a unique array that will be used to the search result
                     this.completeList = this.movieList.concat(this.tvList)
+                    
+                    //Check
+                    console.log('completeList:', this.completeList)
                 });
             } else {
                 this.needle = ''

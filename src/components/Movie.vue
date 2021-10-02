@@ -9,7 +9,7 @@
                 <img :src="`https://www.countryflags.io/us/flat/64.png`">
             </h6>
             <h6 v-else>
-                <img :src="`https://www.countryflags.io/${language}/flat/64.png`">
+                <img :src="`https://www.countryflags.io/${language}/flat/64.png`" :alt="language">
             </h6>
             
             <h6> Vote: {{vote}} </h6> 
