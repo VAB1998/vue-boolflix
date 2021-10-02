@@ -1,8 +1,8 @@
 <template>
     <div id="searchbar">
-            <!-- <input type="text" placeholder="Search the Film"
+            <input type="text" placeholder="Search the Film"
             v-on:keyup.enter="$emit('searchMovie', needle)" v-model="needle">
-            <button v-on:click="$emit('searchMovie', needle)"> Search </button>         -->
+            <button v-on:click="$emit('searchMovie', needle)"> Search </button>        
     </div>
 </template>
 

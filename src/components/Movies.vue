@@ -1,17 +1,19 @@
 <template>
     <section id="movies">
         <div class="container-fluid">
-            
+            <h1> {{needle}} </h1>
+            <h1> Search: {{ search }} </h1>
+            <h1> {{ movieList }} </h1>
             <div class="row justify-content-between align-items-center bg-dark mb-4">
                 <div class="col-4">
                     <img src="https://fontmeme.com/permalink/211001/c072857f28ffed69c9266a55183f4c20.png" alt="Boolflix logo">
                 </div>
                 <div class="col-4">
-                    <div id="searchbar">
+                    <!-- <div id="searchbar">
                         <input type="text" placeholder="Search the Film"
                         v-on:keyup.enter="search" v-model="needle">
                         <button v-on:click="search"> Search</button>        
-                    </div>
+                    </div> -->
                 </div>   
             </div>
 
@@ -38,18 +40,46 @@ export default {
         Movie
     },
 
+    props : {
+        needle : String
+    },
+
     data : function(){
         return{
 
-            needle : '',
-            movieList : []
+            
+            movieList : [1]
         }
     },
 
     methods :{
+        // search(){
+        //     if(this.needle.trim() != ''){
+        //          //Make HTTP  GET Request to an API
+        //         axios.get('https://api.themoviedb.org/3/search/movie?api_key=2c9b181fd830bd18b14d45907ca913b7',
+        //         {
+        //             params: {
+        //                 query : this.needle,
+        //             }
+        //         })
+        //         .then((object) =>{
+        //             this.movieList = object.data.results
+        //             //Check
+        //             console.clear()
+        //             console.log('API Respone: ', object.data.results)
+        //             console.log('MovieList:', this.movieList)
+        //         });
+        //     } else {
+        //         this.needle = ''
+        //         this.movieList = ''
+        //     }
+        // }
+    },   
+    
+    computed : {
         search(){
-            if(this.needle.trim() != ''){
-                 //Make HTTP  GET Request to an API
+            
+                //Make HTTP  GET Request to an API
                 axios.get('https://api.themoviedb.org/3/search/movie?api_key=2c9b181fd830bd18b14d45907ca913b7',
                 {
                     params: {
@@ -63,12 +93,11 @@ export default {
                     console.log('API Respone: ', object.data.results)
                     console.log('MovieList:', this.movieList)
                 });
-            } else {
-                this.needle = ''
-                this.movieList = ''
-            }
+                    return 'pieno'
+                
+            
         }
-    }       
+    }
 }
 </script>
 
