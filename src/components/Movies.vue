@@ -8,6 +8,7 @@
                 <div class="col-4">
                     <!-- ------Searchbar------ -->
                     <div id="searchbar">
+                        <!-- On keyup.enter or on click call the -search- function -->
                         <input type="text" placeholder="Search the Film"
                         v-on:keyup.enter="search" v-model="needle">
                         <button v-on:click="search"> Search</button>   
@@ -17,6 +18,9 @@
 
             <div class="row gy-3">
                 <!-- ------Movie------ -->
+                <!--Iterate throught the completeList(movieList + tvList) array obtained from API 
+                    Pass the datas via props of completeList
+                -->
                 <Movie v-for="(item) in completeList" :key="item.id" 
                 :title="item.title" :originalTitle="item.original_title" :language="item.original_language" :vote="item.vote_average" 
                 :tvTitle="item.name" :tvOriginalTitle="item.original_name" :imageSource="item.backdrop_path" />
