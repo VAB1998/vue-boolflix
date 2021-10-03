@@ -5,7 +5,7 @@
         v-on:keyup.enter="search" v-model="needle">
         <button class="btn" v-on:click="search">Search</button>      -->
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Recipient's username"
+            <input type="text" class="form-control" placeholder="Search a Film or a TV Series"
             v-on:keyup.enter="search" v-model="needle">
             <button class="btn" v-on:click="search" >Search</button>
         </div>

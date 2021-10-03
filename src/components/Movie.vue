@@ -1,8 +1,8 @@
 <template>
-    <div class="col">
+    <div class="col d-flex justify-content-center">
         <div class="movie_card h-100">
             <div class="inner_movie_card">
-                <div class="back_movie_card">
+                <div class="back_movie_card p-2">
                     <h5> Title: {{ title }} {{tvTitle}} </h5>
                     <h6> Original Title: {{originalTitle}} {{tvOriginalTitle}} </h6>
                     <!-- Add language flats using the ISO 3166 Code of the Countries Ex.: Italy Code=it Italy Language=it  -->
@@ -19,7 +19,7 @@
                 </div>
                 <div class="front_movie_card">
                     <img v-if="imageSource != null" :src="`https://image.tmdb.org/t/p/w342${imageSource}`" alt="Image Poster">
-                    <img v-else :src="`https://dummyimage.com/342x192/273696/fff.jpg&text=Movie+Poster+Coming+Soon`" alt="Image Poster">
+                    <img v-else :src="`https://dummyimage.com/342x192/525252/fff.jpg&text=Movie+Poster+Coming+Soon`" alt="Image Poster">
                 </div>
             </div>
         </div>
@@ -84,7 +84,8 @@ export default {
 
     .back_movie_card{
         //Style
-        background-color: $background;
+        background-color: #2d3436;
+        background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
         //Flip card Effect Settings
         position: absolute;
         height: 100%;

@@ -36,6 +36,10 @@ export default {
 
 <style lang="scss">
 @import './style/general.scss';
+#app{
+  min-height: 100vh;
+  padding-bottom: 20px;
+}
 </style>
 
 // API key: 2c9b181fd830bd18b14d45907ca913b7
