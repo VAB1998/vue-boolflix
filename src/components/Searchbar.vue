@@ -1,9 +1,15 @@
 <template>
     <div id="searchbar">
-            <!-- On keyup.enter or on click call the -search- function -->
-            <input type="text" placeholder="Search the Film"
+        <!-- On keyup.enter or on click call the -search- function -->
+        <!-- <input type="text" placeholder="Search a Film or a TV Series"
+        v-on:keyup.enter="search" v-model="needle">
+        <button class="btn" v-on:click="search">Search</button>      -->
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Recipient's username"
             v-on:keyup.enter="search" v-model="needle">
-            <button v-on:click="search"> Search</button>         
+            <button class="btn" v-on:click="search" >Search</button>
+        </div>
+
     </div>
 </template>
 
@@ -23,11 +29,15 @@ export default {
 
     methods : {
         search(){
+            let vn = this
             if(this.needle.trim() != ''){
                 this.getMovieTv()
+                this.needle = this.needle.trim()
             } else {
                 this.needle = ''
-                this.movieTvList = ''
+                this.movieTvList = []
+                //SEND movieTvList to Header
+                vn.$emit('send', this.movieTvList)
             }
         },
 
@@ -81,5 +91,20 @@ export default {
 
 <style lang="scss" scoped>
 @import '../style/general.scss';
+@import '../style/variables.scss';
 
+#searchbar{
+    input{
+        width: 80%;;
+        height: 100%;
+    }
+    button{
+        background-color: $secondary_text_color;
+        color: $primary_text_color;
+        border-color: $secondary_text_color;
+        border-radius: 0 5px 5px 0;
+        width: 20%;
+        // height: 100%;
+    }
+}
 </style>

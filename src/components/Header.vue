@@ -5,7 +5,7 @@
                 <div class="col-4">
                     <Logo />
                 </div>
-                <div class="col-4">
+                <div class="col-5">
                     <!-- RECEIVE movieTvList from Searchbar -->
                     <Searchbar @send="receive" />
                 </div>
