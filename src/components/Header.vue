@@ -45,9 +45,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '../style/general.scss';
+@import '../style/variables.scss';
 
 header{
-    background-color: #212529;
+    background-color: $background;
     margin-bottom: 20px;
 }
 </style>

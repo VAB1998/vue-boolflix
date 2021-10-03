@@ -1,7 +1,7 @@
 <template>
     <div class="col">
-        <div class="movie h-100">
-            <h6> Title: {{ title }} {{tvTitle}} </h6>
+        <div class="movie_card h-100">
+            <h5> Title: {{ title }} {{tvTitle}} </h5>
             <h6> Original Title: {{originalTitle}} {{tvOriginalTitle}} </h6>
             <!-- Add language flats using the ISO 3166 Code of the Countries Ex.: Italy Code=it Italy Language=it  -->
             <div v-if="language == 'en'">
@@ -45,7 +45,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../style/general.scss';
-.movie{
-    background-color: #1958ec33;
+@import '../style/variables.scss';
+.movie_card{
+    background-color: $background;
+    color: $primary_text_color;
 }
 </style>
