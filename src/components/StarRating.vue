@@ -7,7 +7,7 @@
         we round the number down when it is <5 (2.4 to 2) by adding 0.5 to vote/2
         Ex.: Vote 7.6, 7.6/2 = 3.8, 4 stars 
         Credits: Myself -->
-    <h6> Vote: {{vote}} </h6>
+    <h6> Vote: {{vote}}/10 </h6>
     <i v-for="star in stars" :key="star" :class="[ (vote/2 + 0.5 >= star) ? 'fas' : 'far', 'fa-star']"></i>
   </div>
 
@@ -23,11 +23,10 @@ export default {
   },
 
   data : function(){
-        return{
-          stars : [1, 2, 3, 4, 5]
-        }
-    },
-
+    return{
+      stars : [1, 2, 3, 4, 5]
+    }
+  },
 }
 </script>
 

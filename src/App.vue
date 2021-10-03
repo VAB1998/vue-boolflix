@@ -1,38 +1,38 @@
 <template>
   <div id="app">
-    <!-- <Searchbar @searchMovie="storeNeedle" /> -->
-    <Movies :needle="needle" />
+    <!-- RECEIVE movieTvList from Header...Searchbar -->
+    <Header @send="receive"/>
+    <!-- SEND movieTvList to Movies -->
+    <Movies :movieTvList="movieTvList" />
   </div>
 </template>
 
 <script>
-// import Searchbar from './components/Searchbar.vue'
 import Movies from './components/Movies.vue'
+import Header from './components/Header.vue'
 
 export default {
   name: 'App',
 
   data : function(){
         return{
-          needle : ''
+          movieTvList : []
         }
     },
 
   components: {
-    // Searchbar,
+    Header,
     Movies    
   },
 
   methods :{
-    // storeNeedle(needle){
-    //   this.needle = needle
-    //   // console.log(needle)
-    //   // console.log(this.needle)
-    // }
+    receive(movieTvList){
+            this.movieTvList = movieTvList
+            console.log('App movieTvList:', this.movieTvList)
+        }
   }
 }
 </script>
-
 
 <style lang="scss">
 @import './style/general.scss';
@@ -41,4 +41,3 @@ export default {
 // API key: 2c9b181fd830bd18b14d45907ca913b7
 // API Request: https://api.themoviedb.org/3/movie/550?api_key=2c9b181fd830bd18b14d45907ca913b7
 // API Request Search a movie  https://api.themoviedb.org/3/search/movie?api_key=2c9b181fd830bd18b14d45907ca913b7&query=natale+sul+nilo
-

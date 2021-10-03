@@ -1,7 +1,6 @@
 <template>
-    <div class="col-4">
-
-        <div class="movie h-100 p-3">
+    <div class="col">
+        <div class="movie h-100">
             <h6> Title: {{ title }} {{tvTitle}} </h6>
             <h6> Original Title: {{originalTitle}} {{tvOriginalTitle}} </h6>
             <!-- Add language flats using the ISO 3166 Code of the Countries Ex.: Italy Code=it Italy Language=it  -->
@@ -15,13 +14,10 @@
 
             <StarRating :vote="vote" />
 
-            <!-- /Work in progress -->
             <img v-if="imageSource != null" :src="`https://image.tmdb.org/t/p/w342${imageSource}`" alt="Image Poster">
             <img v-else :src="`https://dummyimage.com/342x192/273696/fff.jpg&text=Movie+Poster+Coming+Soon`" alt="Image Poster">
         </div>
-        
     </div>
-
 </template>
 
 <script>
@@ -51,6 +47,5 @@ export default {
 @import '../style/general.scss';
 .movie{
     background-color: #1958ec33;
-
 }
 </style>

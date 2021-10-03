@@ -1,4 +1,7 @@
 -App
-    -Searchbar
+    -Header
+        -Searchbar
     -Movies
         -Movie
+            -StarRating
+    
