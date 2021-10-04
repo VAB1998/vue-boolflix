@@ -86,7 +86,7 @@ export default {
         //Style
         background-color: #2d3436;
         background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
-        overflow-y: scroll;
+        overflow-y: auto;
         //Flip card Effect Settings
         position: absolute;
         height: 100%;
