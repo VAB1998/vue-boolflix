@@ -4,4 +4,11 @@
     -Movies
         -Movie
             -StarRating
+
+
+Prima:
+-App
+    -Searchbar
+    -Movies
+        -Movie
     

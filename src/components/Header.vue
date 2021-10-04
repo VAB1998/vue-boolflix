@@ -28,16 +28,14 @@ export default {
 
     data : function(){
         return{
-            movieTvList : []
         }
     },
 
     methods : {
-        receive(movieTvList){
-            console.log('Header movieList: ', movieTvList)
-            this.movieTvList = movieTvList
+        receive(needle){
+            console.log('Header needle:', needle)
             // SEND movieTvList to App 
-            this.$emit('send', this.movieTvList)
+            this.$emit('send', needle)
         }
     }
 }
