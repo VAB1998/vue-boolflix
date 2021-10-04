@@ -3,8 +3,8 @@
         <div class="movie_card h-100">
             <div class="inner_movie_card">
                 <div class="back_movie_card p-2">
-                    <h5> Title: {{ title }} {{tvTitle}} </h5>
-                    <h6> Original Title: {{originalTitle}} {{tvOriginalTitle}} </h6>
+                    <h5> Title: {{ title ? title :tvTitle}} </h5>
+                    <h6> Original Title: {{originalTitle ? originalTitle : tvOriginalTitle}} </h6>
                     <!-- Add language flats using the ISO 3166 Code of the Countries Ex.: Italy Code=it Italy Language=it  -->
                     <div v-if="language == 'en'">
                         <img :src="`https://www.countryflags.io/gb/flat/64.png`">
@@ -57,7 +57,7 @@ export default {
     height: 142px;
     width: 342px;
     //Style
-    color: $primary_text_color;  
+    color: $primary_text_color; 
     //Flip card Effect Settings
     background-color: transparent;
 
@@ -86,6 +86,7 @@ export default {
         //Style
         background-color: #2d3436;
         background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+        overflow-y: scroll;
         //Flip card Effect Settings
         position: absolute;
         height: 100%;

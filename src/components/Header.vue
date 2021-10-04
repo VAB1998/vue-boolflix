@@ -6,7 +6,7 @@
                     <Logo />
                 </div>
                 <div class="col-5">
-                    <!-- RECEIVE movieTvList from Searchbar -->
+                    <!-- RECEIVE -needle- from Searchbar -->
                     <Searchbar @send="receive" />
                 </div>
             </div>
@@ -33,8 +33,10 @@ export default {
 
     methods : {
         receive(needle){
+            // Check
+            console.clear()
             console.log('Header needle:', needle)
-            // SEND movieTvList to App 
+            // SEND -needle- to App 
             this.$emit('send', needle)
         }
     }

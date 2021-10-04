@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- RECEIVE movieTvList from Header...Searchbar -->
+    <!-- RECEIVE -needle- from Header...Searchbar -->
     <Header @send="search"/>
     <!-- SEND movieTvList to Movies -->
     <Movies :movieTvList="movieTvList" />

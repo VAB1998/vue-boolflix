@@ -5,6 +5,7 @@
         v-on:keyup.enter="search" v-model="needle">
         <button class="btn" v-on:click="search">Search</button> -->
         <div class="input-group">
+            <!-- SEND -needle- to App -->
             <input type="text" class="form-control" placeholder="Search a Film or a TV Series"
             v-on:keyup.enter="$emit('send', needle)" v-model.trim="needle">
             <button class="btn" v-on:click="$emit('send', needle)" >Search</button>
