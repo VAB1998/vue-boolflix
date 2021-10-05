@@ -20,7 +20,7 @@ export default {
           needle : '',
           movieList : [],
           tvList : [],
-          movieTvList : []
+          movieTvList : [],
         }
     },
 
@@ -57,19 +57,24 @@ export default {
                 //Put the result of the Request in movieList array
                 this.movieList = object.data.results
 
-                // for(let item of this.movieList){
-                //   console.log(item.id)
-                //   axios.get(`https://api.themoviedb.org/3/movie/${item.id}/credits`,
-                //   {
-                //     params: {
-                //         api_key : '2c9b181fd830bd18b14d45907ca913b7',
-                //     }
-                //   })
-                //   .then((object) =>{
-                //       console.log(object.data.cast)
+                for(let movieItem of this.movieList){
+                  axios.get(`https://api.themoviedb.org/3/movie/${movieItem.id}/credits`,
+                  {
+                    params: {
+                        api_key : '2c9b181fd830bd18b14d45907ca913b7',
+                    }
+                  })
+                  .then((object) =>{
 
-                //   });
-                // }
+                    let castList = []
+                      for(let item of object.data.cast){
+
+                        castList.push(item.original_name)
+                      }
+                      movieItem.castList = castList
+                  });
+                }
+
             });
 
             
@@ -86,6 +91,24 @@ export default {
             .then((object) =>{
                 //Put the result of the Request in tvList array
                 this.tvList = object.data.results
+
+                for(let tvItem of this.tvList){
+                  axios.get(`https://api.themoviedb.org/3/movie/${tvItem.id}/credits`,
+                  {
+                    params: {
+                        api_key : '2c9b181fd830bd18b14d45907ca913b7',
+                    }
+                  })
+                  .then((object) =>{
+
+                    let castList = []
+                      for(let item of object.data.cast){
+
+                        castList.push(item.original_name)
+                      }
+                      tvItem.castList = castList
+                  });
+                }
 
                 //Concat the movieList and tvList arrays in a unique array that will be used to the search result
                 this.movieTvList = this.movieList.concat(this.tvList)
