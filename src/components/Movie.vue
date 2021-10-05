@@ -6,13 +6,9 @@
                     <h5> Title: {{ title ? title :tvTitle}} </h5>
                     <h6> Original Title: {{originalTitle ? originalTitle : tvOriginalTitle}} </h6>
                     <!-- Add language flats using the ISO 3166 Code of the Countries Ex.: Italy Code=it Italy Language=it  -->
-                    <div v-if="language == 'en'">
-                        <img :src="`https://www.countryflags.io/gb/flat/64.png`">
-                        <img :src="`https://www.countryflags.io/us/flat/64.png`">
-                    </div>
-                    <div v-else >                
-                        <img :src="`https://www.countryflags.io/${language}/flat/64.png`" :alt="`Language : ${language}`">
-                    </div>
+
+                    <img :src="getFlag" :alt="`Language : ${language}`">
+                    
 
                     <StarRating :vote="vote" />
             
@@ -45,6 +41,19 @@ export default {
         tvOriginalTitle : String,
         imageSource : String,
     },
+
+    computed : {
+        getFlag() {
+            
+            if(this.language == 'en'){
+                return "https://www.countryflags.io/gb/flat/64.png"
+            } else{
+                return `https://www.countryflags.io/${this.language}/flat/64.png`
+            }
+
+            
+        }
+    }
 }
 </script>
 
