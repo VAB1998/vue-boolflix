@@ -1,7 +1,7 @@
 <template>
     <section id="movies">
         <div class="container">
-            <div class="row row-cols-sm-1 row-cols-md-2 g-2">
+            <div class="row row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-2">
                     <!--Iterate throught the movieTvList(movieList + tvList) array obtained from API 
                     Pass the datas via props of movieTvList -->
                     <Movie v-for="(item) in movieTvList" :key="item.id" 

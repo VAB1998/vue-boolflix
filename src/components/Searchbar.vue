@@ -8,7 +8,12 @@
             <!-- SEND -needle- to App -->
             <input type="text" class="form-control" placeholder="Search a Film or a TV Series"
             v-on:keyup.enter="$emit('send', needle)" v-model.trim="needle">
-            <button class="btn" v-on:click="$emit('send', needle)" >Search</button>
+            <button class="btn" v-on:click="$emit('send', needle)" >
+                <span class="d-none d-md-inline">
+                    Search 
+                </span>
+                <i class="fas fa-search d-md-none"></i>
+                </button>
         </div>
 
     </div>
@@ -31,17 +36,12 @@ export default {
 @import '../style/variables.scss';
 
 #searchbar{
-    input{
-        width: 80%;;
-        height: 100%;
-    }
+    padding: 5px 0;
     button{
         background-color: $secondary_text_color;
         color: $primary_text_color;
         border-color: $secondary_text_color;
         border-radius: 0 5px 5px 0;
-        width: 20%;
-        // height: 100%;
     }
 }
 </style>

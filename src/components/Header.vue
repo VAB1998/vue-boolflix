@@ -2,10 +2,10 @@
     <header>
         <div class="container">
             <div class="row justify-content-between align-items-center">
-                <div class="col-4">
+                <div class="col-3 col-md-3 col-lg-4">
                     <Logo />
                 </div>
-                <div class="col-5">
+                <div class="col-9 col-md-7 col-lg-5">
                     <!-- RECEIVE -needle- from Searchbar -->
                     <Searchbar @send="receive" />
                 </div>

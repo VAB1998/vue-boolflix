@@ -47,7 +47,7 @@ export default {
          */
         getFlag() {
             if(this.language === 'en'){
-                return "https://www.countryflags.io/gb/flat/64.png"
+                return "https://www.countryflags.io/us/flat/64.png"
             } else{
                 return `https://www.countryflags.io/${this.language}/flat/64.png`
             }
