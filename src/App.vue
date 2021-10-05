@@ -3,7 +3,7 @@
     <!-- RECEIVE -needle- from Header...Searchbar -->
     <Header @send="search"/>
     <!-- SEND movieTvList to Movies -->
-    <Movies :movieTvList="movieTvList" />
+    <Movies :movieTvList="movieTvList" :movieList="movieList" :tvList="tvList" />
   </div>
 </template>
 
@@ -57,7 +57,23 @@ export default {
                 //Put the result of the Request in movieList array
                 this.movieList = object.data.results
 
+                // for(let item of this.movieList){
+                //   console.log(item.id)
+                //   axios.get(`https://api.themoviedb.org/3/movie/${item.id}/credits`,
+                //   {
+                //     params: {
+                //         api_key : '2c9b181fd830bd18b14d45907ca913b7',
+                //     }
+                //   })
+                //   .then((object) =>{
+                //       console.log(object.data.cast)
+
+                //   });
+                // }
             });
+
+            
+            
 
             //Make HTTP GET Request to an API for search/tv
             axios.get('https://api.themoviedb.org/3/search/tv',
@@ -96,3 +112,9 @@ export default {
 // API key: 2c9b181fd830bd18b14d45907ca913b7
 // API Request: https://api.themoviedb.org/3/movie/550?api_key=2c9b181fd830bd18b14d45907ca913b7
 // API Request Search a movie  https://api.themoviedb.org/3/search/movie?api_key=2c9b181fd830bd18b14d45907ca913b7&query=natale+sul+nilo
+
+
+// Search the cast
+//https://api.themoviedb.org/3/movie/42432/credits?api_key=2c9b181fd830bd18b14d45907ca913b7
+//API Request Search Movies and TV Series: 
+//https://api.themoviedb.org/3/search/multi?api_key=2c9b181fd830bd18b14d45907ca913b7&query=natale+sul+nilo

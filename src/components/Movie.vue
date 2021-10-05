@@ -4,13 +4,12 @@
             <div class="inner_movie_card">
                 <div class="back_movie_card p-2">
                     <!-- Title -->
-                    <h5> Title: {{ title ? title :tvTitle}} </h5>
-                    <h6> Original Title: {{originalTitle ? originalTitle : tvOriginalTitle}} </h6>
+                    <h5> Title: {{ movieTitle ? movieTitle : tvTitle}} </h5>
+                    <h6> Original Title: {{movieOriginalTitle ? movieOriginalTitle : tvOriginalTitle}} </h6>
                     <!-- Flag -->
-                    <img :src="getFlag" :alt="`Language : ${language}`">
+                    <img :src="getFlag" :alt="`Language : ${movieLanguage ? movieLanguage : tvLanguage}`">
                     <!-- Star Rating -->
                     <StarRating :vote="vote" />
-
                 </div>
                 <div class="front_movie_card">
                     <!-- Poster -->
@@ -23,7 +22,6 @@
 
 <script>
 import StarRating from './StarRating.vue'
-
 export default {
     name: 'Movie',
 
@@ -32,13 +30,19 @@ export default {
     },
 
     props : {
-        title : String,
-        originalTitle : String, 
-        language : String, 
-        vote : Number,
+        movieTitle : String,
+        movieOriginalTitle : String,
+        movieLanguage : String,
+        movieVote : Number,
+        movieImageSource : String,
+        movieId : Number,
+
         tvTitle : String,
         tvOriginalTitle : String,
-        imageSource : String,
+        tvLanguage : String,
+        tvVote : Number,
+        tvImageSource : String,
+        tvId : Number
     },
 
     computed : {
@@ -49,7 +53,7 @@ export default {
             if(this.language === 'en'){
                 return "https://www.countryflags.io/us/flat/64.png"
             } else{
-                return `https://www.countryflags.io/${this.language}/flat/64.png`
+                return `https://www.countryflags.io/${this.movieLanguage ? this.movieLanguage : this.tvLanguage}/flat/64.png`
             }
         },
 
@@ -60,11 +64,11 @@ export default {
             if(this.imageSource == null){
                 return `https://dummyimage.com/342x192/525252/fff.jpg&text=Movie+Poster+Coming+Soon`
             } else {
-                return `https://image.tmdb.org/t/p/w342${this.imageSource}`
+                return `https://image.tmdb.org/t/p/w342${this.movieImageSource ? this.movieImageSource : this.tvImageSource}`
             }
-        }
-            
-    }
+        },
+        
+    } 
 }
 </script>
 
