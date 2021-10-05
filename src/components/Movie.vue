@@ -9,6 +9,7 @@
                     <h6> Original Title: {{originalTitle ? originalTitle : tvOriginalTitle}} </h6>
 
                     <h6>
+                        Cast:
                         <span v-for="(actor, index) in castList" :key="index">
                             {{ actor }}
                         </span>  

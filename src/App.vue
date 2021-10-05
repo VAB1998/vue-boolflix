@@ -124,7 +124,7 @@ export default {
                 // console.clear()
                 console.log('Movie List:', this.movieList)
                 console.log('Tv List:', this.tvList)
-                console.log('Movie and Tv List:', this.movieTvList)
+                console.log('Movie and TvList:', this.movieTvList)
             });
         },
   }
