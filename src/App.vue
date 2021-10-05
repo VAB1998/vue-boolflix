@@ -57,6 +57,7 @@ export default {
                 //Put the result of the Request in movieList array
                 this.movieList = object.data.results
 
+                //Add the CastList in each movie Item
                 for(let movieItem of this.movieList){
                   axios.get(`https://api.themoviedb.org/3/movie/${movieItem.id}/credits`,
                   {
@@ -67,9 +68,12 @@ export default {
                   .then((object) =>{
 
                     let castList = []
-                      for(let item of object.data.cast){
 
-                        castList.push(item.original_name)
+                      let i = 0
+                      while(i < 5 && object.data.cast[i] != undefined){
+                        castList.push(object.data.cast[i].original_name)
+                        i++
+
                       }
                       movieItem.castList = castList
                   });
@@ -92,8 +96,9 @@ export default {
                 //Put the result of the Request in tvList array
                 this.tvList = object.data.results
 
+                //Add the CastList in each TV Item
                 for(let tvItem of this.tvList){
-                  axios.get(`https://api.themoviedb.org/3/movie/${tvItem.id}/credits`,
+                  axios.get(`https://api.themoviedb.org/3/tv/${tvItem.id}/credits`,
                   {
                     params: {
                         api_key : '2c9b181fd830bd18b14d45907ca913b7',
@@ -102,9 +107,11 @@ export default {
                   .then((object) =>{
 
                     let castList = []
-                      for(let item of object.data.cast){
 
-                        castList.push(item.original_name)
+                      let i = 0
+                      while(i < 5 && object.data.cast[i] != undefined){
+                        castList.push(object.data.cast[i].original_name)
+                        i++
                       }
                       tvItem.castList = castList
                   });
@@ -115,9 +122,9 @@ export default {
                 
                 //Check
                 // console.clear()
-                console.log('Searchbar movieList:', this.movieList)
-                console.log('Searchbar tvList:', this.tvList)
-                console.log('Searchbar movieTvList:', this.movieTvList)
+                console.log('Movie List:', this.movieList)
+                console.log('Tv List:', this.tvList)
+                console.log('Movie and Tv List:', this.movieTvList)
             });
         },
   }

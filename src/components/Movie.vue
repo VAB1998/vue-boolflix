@@ -5,11 +5,24 @@
                 <div class="back_movie_card p-2">
                     <!-- Title -->
                     <h5> Title: {{ title ? title :tvTitle}} </h5>
+
                     <h6> Original Title: {{originalTitle ? originalTitle : tvOriginalTitle}} </h6>
+
+                    <h6>
+                        <span v-for="(actor, index) in castList" :key="index">
+                            {{ actor }}
+                        </span>  
+                    </h6>
                     <!-- Flag -->
                     <img :src="getFlag" :alt="`Language : ${language}`">
+                    
+                    
+                    
                     <!-- Star Rating -->
                     <StarRating :vote="vote" />
+
+                    
+                    
                 </div>
                 <div class="front_movie_card">
                     <!-- Poster -->
@@ -37,6 +50,7 @@ export default {
         tvTitle : String,
         tvOriginalTitle : String,
         imageSource : String,
+        castList : Array
     },
 
     computed : {
