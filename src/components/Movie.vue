@@ -3,19 +3,18 @@
         <div class="movie_card h-100">
             <div class="inner_movie_card">
                 <div class="back_movie_card p-2">
+                    <!-- Title -->
                     <h5> Title: {{ title ? title :tvTitle}} </h5>
                     <h6> Original Title: {{originalTitle ? originalTitle : tvOriginalTitle}} </h6>
-                    <!-- Add language flats using the ISO 3166 Code of the Countries Ex.: Italy Code=it Italy Language=it  -->
-
+                    <!-- Flag -->
                     <img :src="getFlag" :alt="`Language : ${language}`">
-                    
-
+                    <!-- Star Rating -->
                     <StarRating :vote="vote" />
-            
+
                 </div>
                 <div class="front_movie_card">
-                    <img v-if="imageSource != null" :src="`https://image.tmdb.org/t/p/w342${imageSource}`" alt="Image Poster">
-                    <img v-else :src="`https://dummyimage.com/342x192/525252/fff.jpg&text=Movie+Poster+Coming+Soon`" alt="Image Poster">
+                    <!-- Poster -->
+                    <img :src="getPoster" alt="Image Poster">
                 </div>
             </div>
         </div>
@@ -43,16 +42,28 @@ export default {
     },
 
     computed : {
+        /** 
+         * Add language flats using the ISO 3166 Code of the Countries (Ex.: Italy Code=it Italy Language=it)
+         */
         getFlag() {
-            
-            if(this.language == 'en'){
+            if(this.language === 'en'){
                 return "https://www.countryflags.io/gb/flat/64.png"
             } else{
                 return `https://www.countryflags.io/${this.language}/flat/64.png`
             }
+        },
 
-            
+        /**
+         * Return the Movie/TV Serie Poster if the image source != null and return a "default" image if the image source == null 
+         */
+        getPoster() {
+            if(this.imageSource == null){
+                return `https://dummyimage.com/342x192/525252/fff.jpg&text=Movie+Poster+Coming+Soon`
+            } else {
+                return `https://image.tmdb.org/t/p/w342${this.imageSource}`
+            }
         }
+            
     }
 }
 </script>
