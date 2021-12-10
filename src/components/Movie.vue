@@ -60,9 +60,9 @@ export default {
          */
         getFlag() {
             if(this.language === 'en'){
-                return "https://www.countryflags.io/us/flat/64.png"
+                return "https://flagcdn.com/w40/us.png"
             } else{
-                return `https://www.countryflags.io/${this.language}/flat/64.png`
+                return `https://flagcdn.com/w40/${this.language}.png`
             }
         },
 
